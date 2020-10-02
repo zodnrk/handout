@@ -1,0 +1,3 @@
+[submodule ".latex"]
+	path = .latex
+	url = git@gitlab.com:severinkaderli/pandoc-latex-templates.git
