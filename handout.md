@@ -18,6 +18,18 @@ If you're looking for something in video form,
 is also quite good.
 
 ## History
+Git is an open source version control system (VCS),
+which was developed by Linus Torvalds in 2005
+because the current VCS used for Linux Kernel development
+was no longer sufficient.
+^[[git-scm.com A short history](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git)]
+Some of the goals for Git were:
+
+* Speed
+* Simple design
+* Support for parallel development
+* Fully distributed
+* Efficiently handle large projects
 
 ## Version Control
 
