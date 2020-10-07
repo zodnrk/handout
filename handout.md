@@ -31,6 +31,8 @@ Some of the goals for Git were:
 * Fully distributed
 * Efficiently handle large projects
 
+## Quick Start Guide
+
 ## Version Control
 
 ## Branching Model
