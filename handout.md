@@ -1,5 +1,5 @@
 ---
-title: Git
+title: Maven & Git
 titlepage: false
 lot: false
 toc: false
