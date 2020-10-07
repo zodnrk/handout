@@ -8,6 +8,72 @@ classoption:
 - twocolumn
 ...
 
+# Maven
+## Build tool
+Maven is a powerful build tool for java projects.
+It is used to manage and describes Java Projects:
+
+ 
+
+ - Standard-Lifecycle for projects
+ - Structure of projects
+ - Definition and management of project dependencies
+ - Creation of projects from templates
+ - Versioning
+
+ 
+
+To get and install maven:
+[http://maven.apache.org](http://maven.apache.org/)
+
+ 
+
+-   GroupId  - a package of a new project.
+-   ArtifactId  - a name of your project.
+-   Version  - a version of a new project. By default, this field is specified automatically.
+
+ 
+
+Maven can be used for:
+ - Compile
+ - Runtime
+ - Provided (only to compile, not on runtime. It is used as example from Servlet API)
+ - Test (JUnit tests to check the code every built time)
+
+ 
+
+#### configuration file: pom.xml
+pom.xml is a **p**roject **o**bject **m**odel with xml format.
+
+ 
+
+#### Java structure
+
+ 
+
+    src
+        src/main
+            src/main/java
+            src/main/resources
+        src/test
+            src/test/java
+    target
+        target/classes        
+
+ 
+
+ - src = all insert files
+ - main =  main directory
+ - main/java = Java source code
+ - main/ressources = other files that are needed at runtime
+ - test = files for automated test runs
+ - test/java = JUnit Classes
+
+ 
+
+#### Quick start guide
+
+
 # Git
 ## Further Reading
 For further reading about git,
