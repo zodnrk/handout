@@ -1,0 +1,20 @@
+diff --git a/build.sh b/build.sh
+index 749a0a0..246177a 100755
+--- a/build.sh
++++ b/build.sh
+@@ -74,7 +74,6 @@ pandoc \
+ --csl="${CSL_FILE}" \
+ --from markdown+table_captions+backtick_code_blocks+footnotes+inline_notes \
+ --toc \
+---number-sections \
+ --template "${TEMPLATE_FILE}" \
+ "${TEMPLATE_ARGUMENTS[@]}" \
+ --pdf-engine=xelatex \
+@@ -82,7 +81,6 @@ pandoc \
+ "${FILENAME}" \
+ -o "${START_DIR}/${OUTPUT_FILENAME}${OUTPUT_EXTENSION}" \
+ -V toc-own-page \
+--V titlepage \
+ -V date:"${CURRENT_DATE}"
+ 
+ RETURN_CODE="$?"
