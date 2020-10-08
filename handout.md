@@ -13,7 +13,7 @@ classoption:
 Maven is a powerful build tool for java projects.
 It is used to manage and describe:
 
- - Standard lifecycle for projects (compile, test, package, deploy)
+ - Standard life cycle for projects (compile, test, package, deploy)
  - Structuring projects (predefined file structure)
  - Definition and management of project dependencies
  - Version management of dependencies
@@ -45,7 +45,7 @@ Example `pom.xml`
 </project>
 ```
 
-While the dependencies are probabely the most useful, but still optional feature of maven, the following properties are mandatory:
+While the dependencies are probably the most useful, but still optional feature of maven, the following properties are mandatory:
  - `groupId`  - package path of the project
  - `artifactId`  - name of your project
  - `version`  - a version your project.
@@ -58,7 +58,7 @@ Maven embraces the convention over configuration principle. This incites to adhe
 src
     src/main
         src/main/java
-        src/main/resources
+        src/main/ressources
     src/test
         src/test/java
 target
@@ -66,8 +66,8 @@ target
 ```
 
  - `src` - all source code
- - `src/main/java` - entrypoint for the applications source
- - `src/main/ressources` - other files that are needed at runtime
+ - `src/main/java` - entry point for the applications source
+ - `src/main/resources` - other files that are needed at runtime
  - `src/test` - anything related to automated tests
  - `src/test/java` - the test sources (p.ex. JUnit classes)
 
@@ -107,7 +107,7 @@ Some of the goals for Git were:
 ## Quick Start Guide
 * Get and install git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 * `git clone git@github.com/dude/project` - get a local copy of the project
-* `git fetch` - get the lastest changes from the server, without applying them to your working copy
+* `git fetch` - get the latest changes from the server, without applying them to your working copy
 * `git status` - list the changes on your working copy and show, if they are included in your next commit
 * `git add <pathspec>` - add the specified file (also multiple files and globing allowed) to the next commit (stage the file)
 * `git rm --cached <pathspec>` - remove the specified file from the commit list (unstage the file), but keep the local changes
@@ -119,19 +119,19 @@ Some of the goals for Git were:
 
 ## Version Control
 Version control systems (VCS) serve mainly two purposes: 
-1) Keeping track of every change that happes to the code
-2) Facilitate simultanious edition (by multiple programmers) of the same project
+1) Keeping track of every change that happens to the code
+2) Facilitate simultaneous edition (by multiple programmers) of the same project
 
 Thanks to VCS it is possible to easily revert to any revision ever made, find out when exactly a feature (or bug) was introduced etc. Further more, it is also possible to see, who wrote what and when.
 
-The fantastic merging capabilities introduced with Git enable programmers to easily unify their working copies without overwriting each others changes. This outstanding feature made git the most popular VCS today. Still, every programer has its own version, but git simplifies merging these versions into a new, combined one.
+The fantastic merging capabilities introduced with Git enable programmers to easily unify their working copies without overwriting each others changes. This outstanding feature made git the most popular VCS today. Still, every programmer has its own version, but git simplifies merging these versions into a new, combined one.
 
 ## Branching Model
-Apart of the very source of thruth, the `main` (or `master`) branch, git allows to have some diverging source trees called branches. Branches allow to make and test some changes, without messing with the main code. A branch can be imagined as if it would be a completly separated copy of the code.
+Apart of the very source of truth, the `main` (or `master`) branch, git allows to have some diverging source trees called branches. Branches allow to make and test some changes, without messing with the main code. A branch can be imagined as if it would be a completely separated copy of the code.
 
-It is very common to develop new features in a dedicated branch. This brings the advantage, that p.ex. an unfinished feature doesn't block the development of a hotfix in the main branch.
+It is very common to develop new features in a dedicated branch. This brings the advantage, that p.ex. an unfinished feature doesn't block the development of a hot-fix in the main branch.
 
-Branches can easily be compared and merged. The hotfix from above could therefore be merged into the feature branch, so the feature could be finished and tested already with the hotfix included, before being merged back into the main branch.
+Branches can easily be compared and merged. The hot-fix from above could therefore be merged into the feature branch, so the feature could be finished and tested already with the hot-fix included, before being merged back into the main branch.
 
 ## Collaboration
 

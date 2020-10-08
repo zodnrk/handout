@@ -1,0 +1,16 @@
+#!/bin/bash
+if ! command -v aspell &> /dev/null
+then
+  echo "aspell must be installed (english dictionary)"
+  exit 1
+fi
+
+if [ "$#" -ne 1 ] && [ ! -f "$1" ]; then
+  echo "Usage: ./spellcheck <filename>"
+  exit 1
+fi
+
+cat "$1" | tr -d '*' | aspell --home-dir=. list | sort | uniq | while read mistake
+do
+  grep --color=auto -ns "$mistake" "$1"
+done
