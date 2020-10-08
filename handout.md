@@ -83,7 +83,7 @@ target
 
 # Git
 ## Further Reading
-For further reading about git,
+For further reading about Git,
 I recommend the book _Pro Git_.
 It's free, and can be found on [the Git website](https://git-scm.com/book/en/v2).
 If you're looking for something in video form,
@@ -105,7 +105,7 @@ Some of the goals for Git were:
 * Efficiently handle large projects
 
 ## Quick Start Guide
-* Get and install git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+* Get and install Git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 * `git clone git@github.com/dude/project` - get a local copy of the project
 * `git fetch` - get the latest changes from the server, without applying them to your working copy
 * `git status` - list the changes on your working copy and show, if they are included in your next commit
@@ -124,10 +124,10 @@ Version control systems (VCS) serve mainly two purposes:
 
 Thanks to VCS it is possible to easily revert to any revision ever made, find out when exactly a feature (or bug) was introduced etc. Further more, it is also possible to see, who wrote what and when.
 
-The fantastic merging capabilities introduced with Git enable programmers to easily unify their working copies without overwriting each others changes. This outstanding feature made git the most popular VCS today. Still, every programmer has its own version, but git simplifies merging these versions into a new, combined one.
+The fantastic merging capabilities introduced with Git enable programmers to easily unify their working copies without overwriting each others changes. This outstanding feature made Git the most popular VCS today. Still, every programmer has its own version, but Git simplifies merging these versions into a new, combined one.
 
 ## Branching Model
-Apart of the very source of truth, the `main` (or `master`) branch, git allows to have some diverging source trees called branches. Branches allow to make and test some changes, without messing with the main code. A branch can be imagined as if it would be a completely separated copy of the code.
+Apart of the very source of truth, the `main` (or `master`) branch, Git allows to have some diverging source trees called branches. Branches allow to make and test some changes, without messing with the main code. A branch can be imagined as if it would be a completely separated copy of the code.
 
 It is very common to develop new features in a dedicated branch. This brings the advantage, that p.ex. an unfinished feature doesn't block the development of a hot-fix in the main branch.
 
