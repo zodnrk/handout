@@ -20,6 +20,7 @@ It is used to manage and describe:
  - Creation of projects from templates
 
 Maven can scope dependencies to be included on:
+
  - Compilation
  - Runtime
  - Provided (only to compile, not on runtime. Example: Servlet API)
@@ -34,7 +35,7 @@ Example `pom.xml`
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
-  <version>1</version>
+  <version>1.0.0</version>
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -45,15 +46,21 @@ Example `pom.xml`
 </project>
 ```
 
-While the dependencies are probably the most useful, but still optional feature of maven, the following properties are mandatory:
+While the dependencies are probably the most useful, but still optional
+feature of maven, the following properties are mandatory:
+
  - `groupId`  - package path of the project
  - `artifactId`  - name of your project
  - `version`  - a version your project.
 
-Via the `pom.xml` it is also possible the specify arbitrary code repositories, custom plugins, project inheritance etc. Any details may be found in the official [introduction](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
+Via the `pom.xml` it is also possible the specify
+arbitrary code repositories, custom plugins, project
+inheritance etc. Any details may be found in the official
+[introduction](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
 
 ## File structure
-Maven embraces the convention over configuration principle. This incites to adhere to the following file structure:
+Maven embraces the convention over configuration principle. This incites to
+adhere to the following file structure:
 ```
 src
     src/main
@@ -62,7 +69,7 @@ src
     src/test
         src/test/java
 target
-    target/classes        
+    target/classes
 ```
 
  - `src` - all source code
@@ -72,8 +79,9 @@ target
  - `src/test/java` - the test sources (p.ex. JUnit classes)
 
 ## Quick start guide
-* Get and install maven: [http://maven.apache.org](http://maven.apache.org/)
-* `mvn validate` - check if configuration is valid and all necessary information is available
+* Get and install maven: [maven.apache.org](http://maven.apache.org/)
+* `mvn validate` - check if configuration is valid and all necessary
+information is available
 * `mvn compile` - does what is says :)
 * `mvn test` - runs automated tests (if set up)
 * `mvn package` - builds your `.jar`, `.war` or whatever you've configured
@@ -85,9 +93,11 @@ target
 ## Further Reading
 For further reading about Git,
 I recommend the book _Pro Git_.
-It's free, and can be found on [the Git website](https://git-scm.com/book/en/v2).
+It's free, and can be found on [the Git
+website](https://git-scm.com/book/en/v2).
 If you're looking for something in video form,
-[Lecture 6 of _The Missing Semester_](https://missing.csail.mit.edu/2020/version-control/)
+[Lecture 6 of _The Missing
+Semester_](https://missing.csail.mit.edu/2020/version-control/)
 is also quite good.
 
 ## History
@@ -95,7 +105,8 @@ Git is an open source version control system (VCS),
 which was developed by Linus Torvalds in 2005
 because the current VCS used for Linux Kernel development
 was no longer sufficient.
-[git-scm.com A short history](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git)]
+^[[git-scm.com A short 
+history](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git)]
 Some of the goals for Git were:
 
 * Speed
@@ -105,33 +116,56 @@ Some of the goals for Git were:
 * Efficiently handle large projects
 
 ## Quick Start Guide
-* Get and install Git: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+* Get and install Git:
+[git-scm.com/downloads](https://git-scm.com/downloads)
 * `git clone git@github.com/dude/project` - get a local copy of the project
-* `git fetch` - get the latest changes from the server, without applying them to your working copy
-* `git status` - list the changes on your working copy and show, if they are included in your next commit
-* `git add <pathspec>` - add the specified file (also multiple files and globing allowed) to the next commit (stage the file)
-* `git rm --cached <pathspec>` - remove the specified file from the commit list (unstage the file), but keep the local changes
-* `git commit -m <message>` - commit the staged files and add the specified commit message
+* `git fetch` - get the latest changes from the server, without applying
+them to your working copy
+* `git status` - list the changes on your working copy and show, if they
+are included in your next commit
+* `git add <pathspec>` - add the specified file (also multiple files and
+globing allowed) to the next commit (stage the file)
+* `git restore --staged <pathspec>` - remove the specified file from the commit
+list (unstage the file), but keep the local changes
+* `git commit -m <message>` - commit the staged files and add the specified
+commit message
 * `git diff` - show changes between the latest commit and the working copy
 * `git push` - send the commits of the current branch to the repository
 * `git pull` - get the latest commits of the current branch from the repository
-* `git checkout <branch>` - switch to the specified branch. Use `-b` to create a new branch
+* `git checkout <branch>` - switch to the specified branch. Use `-b` to
+create a new branch
 
 ## Version Control
-Version control systems (VCS) serve mainly two purposes: 
+Version control systems (VCS) serve mainly two purposes:
+
 1) Keeping track of every change that happens to the code
-2) Facilitate simultaneous edition (by multiple programmers) of the same project
+2) Facilitate simultaneous edition (by multiple programmers) of the same
+project
 
-Thanks to VCS it is possible to easily revert to any revision ever made, find out when exactly a feature (or bug) was introduced etc. Further more, it is also possible to see, who wrote what and when.
+Thanks to VCS it is possible to easily revert to any revision ever made,
+find out when exactly a feature (or bug) was introduced etc. Further more,
+it is also possible to see, who wrote what and when.
 
-The fantastic merging capabilities introduced with Git enable programmers to easily unify their working copies without overwriting each others changes. This outstanding feature made Git the most popular VCS today. Still, every programmer has its own version, but Git simplifies merging these versions into a new, combined one.
+The fantastic merging capabilities introduced with Git enable programmers to
+easily unify their working copies without overwriting each others changes. This
+outstanding feature made Git the most popular VCS today. Still, every
+programmer has its own version, but Git simplifies merging these versions
+into a new, combined one.
 
 ## Branching Model
-Apart of the very source of truth, the `main` (or `master`) branch, Git allows to have some diverging source trees called branches. Branches allow to make and test some changes, without messing with the main code. A branch can be imagined as if it would be a completely separated copy of the code.
+Apart of the very source of truth, the `main` (or `master`) branch, Git
+allows to have some diverging source trees called branches. Branches allow
+to make and test some changes, without messing with the main code. A branch
+can be imagined as if it would be a completely separated copy of the code.
 
-It is very common to develop new features in a dedicated branch. This brings the advantage, that p.ex. an unfinished feature doesn't block the development of a hot-fix in the main branch.
+It is very common to develop new features in a dedicated branch. This brings
+the advantage, that e.g. an unfinished feature doesn't block the development
+of a hot-fix in the main branch.
 
-Branches can easily be compared and merged. The hot-fix from above could therefore be merged into the feature branch, so the feature could be finished and tested already with the hot-fix included, before being merged back into the main branch.
+Branches can easily be compared and merged. The hot-fix from above could
+therefore be merged into the feature branch, so the feature could be finished
+and tested already with the hot-fix included, before being merged back into
+the main branch.
 
 ## Collaboration
 
@@ -145,4 +179,5 @@ Branches can easily be compared and merged. The hot-fix from above could therefo
 [Image Credit: [xkcd.com/1597](https://xkcd.com/1597/)]
 
 ![Branching model](img/git-branching-model.png)
-[Image Credit: [https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)]
+[Image Credit:
+[nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)]
