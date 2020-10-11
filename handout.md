@@ -172,6 +172,38 @@ the main branch.
 ## Data Model
 
 ## Tooling
+### Git Clients
+There are several ways to use Git:
+
+- The default command line program
+- [Tig](https://github.com/jonas/tig): A command line wrapper, for a better UI
+- Various GUIs:
+  * [GitHub Desktop](https://desktop.github.com/)
+  * [TortoiseGit](https://tortoisegit.org/)
+  * [SourceTree](https://www.sourcetreeapp.com/)
+
+While it may seem easier to use a GUI while learning Git,
+it is generally recommended to start with the command line version.
+This will help you get familiar with how git works on the inside,
+which is valuable knowledge should you ever need to perform some
+more complex operations or fix a messed up state in your repository.
+
+### Merge Tools
+In order to resolve merge conflicts,
+it may sometimes be helpful to have a more powerful tool than
+your text-editor or IDE.
+There are several options available, that have differing features.
+The following are all free software:
+
+- [Meld](https://github.com/yousseb/meld)
+- [KDiff3](https://github.com/KDE/kdiff3)
+- [Diffuse](https://github.com/MightyCreak/diffuse)
+
+After [configuring](https://git-scm.com/docs/git-mergetool)
+the tool you'd like to use, you can simply type
+`git mergetool` when the working tree is in a conflicted state.
+Git will then automatically guide you through the merge
+using the configured tool.
 
 \newpage
 ![](img/xkcd_1597.png)
