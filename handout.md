@@ -65,7 +65,7 @@ adhere to the following file structure:
 src
     src/main
         src/main/java
-        src/main/ressources
+        src/main/resources
     src/test
         src/test/java
 target
