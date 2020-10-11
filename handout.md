@@ -3,6 +3,10 @@ title: Maven & Git
 titlepage: false
 lot: false
 toc: false
+author:
+- Bolliger Cyrill Alexander
+- Schneider Marc
+- Schär Marius
 fontsize: 10pt
 classoption:
 - twocolumn
