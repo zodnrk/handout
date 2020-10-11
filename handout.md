@@ -193,7 +193,7 @@ In order to resolve merge conflicts,
 it may sometimes be helpful to have a more powerful tool than
 your text-editor or IDE.
 There are several options available, that have differing features.
-The following are all free software:
+Here are some to try out:
 
 - [Meld](https://github.com/yousseb/meld)
 - [KDiff3](https://github.com/KDE/kdiff3)
