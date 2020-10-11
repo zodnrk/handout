@@ -176,8 +176,8 @@ the main branch.
 \newpage
 ![](img/xkcd_1597.png)
 
-[Image Credit: [xkcd.com/1597](https://xkcd.com/1597/)]
+^[Image Credit: [xkcd.com](https://xkcd.com/1597/)]
 
-![Branching model](img/git-branching-model.png)
-[Image Credit:
-[nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)]
+![](img/git-branching-model.png)
+
+^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
