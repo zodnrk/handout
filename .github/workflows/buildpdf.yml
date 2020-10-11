@@ -1,0 +1,31 @@
+name: Build PDF
+on: push
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set spellcheck as executable
+        run: chmod a+x spellcheck
+      - name: Check spelling of handout.md
+        run: MISTAKES="$(./spellcheck handout.md)"
+      - name: If there are mistakes, fail the job
+        run: '[ -z "$MISTAKES" ] || exit 1'
+  build:
+    runs-on: ubuntu-latest
+    container: registry.gitlab.com/severinkaderli/pandoc-docker:latest
+    env:
+      GIT_SUBMODULE_STRATEGY: recursive
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - name: Patch Template
+        run: cd .latex && git apply ../document_format.patch && cd ..
+      - name: Compile MD to PDF
+        run: ./.latex/build.sh handout.md
+      - uses: actions/upload-artifact@v2
+        with:
+          name: handout
+          path: handout.pdf
