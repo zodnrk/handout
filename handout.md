@@ -98,7 +98,7 @@ information is available
 # Git
 ## Further Reading
 For further reading about Git,
-I recommend the book _Pro Git_.
+We recommend the book _Pro Git_.
 It's free, and can be found on [the Git
 website](https://git-scm.com/book/en/v2).
 If you're looking for something in video form,
@@ -175,7 +175,127 @@ the main branch.
 
 ## Collaboration
 
+\newpage
+
 ## Data Model
+Git's internal data model is extremely simple and elegant,
+and thus well worth learning about.
+In order to explore the data model yourself,
+we recommend reading
+[section 10](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
+in the book 'Pro Git'.
+
+It can be very enlightening and useful to poke around in a simple repository
+using the 'porcelain' ^[described in
+[chapter 10.1](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
+of 'Pro Git'] commands.
+
+### Objects
+Git, at it's core, is a _content addressable filesystem_;
+meaning you can give it any kind of content and it will return a key
+which you can later use to retrieve that content.
+Git stores it's content in _objects_.
+
+__`blob`__  
+When you `git add` a file a _blob_ object is created and it gets added to the index.
+You can see that blob on the filesystem:  
+`.git/objects/64/34b133c0a09a4...`  
+The long hexadecimal string is that blob's ID,
+which is dependent on the content of the added file.
+You can explore that blob:
+```{.sh}
+# IDs can be shortened to minimally identifying length
+# but at least four characters
+$ git cat-file -t 6434 # show the object's type
+blob
+$ git cat-file -p 6434 # show the blob's content
+This is a new text file.
+This is the second line.
+```
+
+__`commit`__  
+When you commit something, Git stores a _snapshot_
+^[Some other VCS only store the diffs, but Git stores the entire state]
+of the  
+working tree, and tells you the `commit` object it created for that state.
+```{.sh}
+$ git commit -m "New file_a.txt created"
+[master 8ea18ad] New file_a.txt created
+$ git cat-file -t 8ea18ad # show the object's type
+commit
+$ git cat-file -p 8ea18ad # show the commit's content
+tree 94d90800073ade891976882159951f9702a03b59
+author John Doe <john@example.com> 1602405691 +0200
+committer John Doe <john@example.com> 1602405691 +0200
+
+New file_a.txt created
+```
+
+Above you can see the contents of a commit.
+From bottom to top the content is as follows:
+The commit message you entered,
+who created the commit,
+who authored the commit
+^[Author and Commiter can be different when merges etc. get involved].
+, and the most important line
+which points to the second object created by `git commit`:
+the tree.
+
+\newpage
+__`tree`__  
+The tree object let's Git keep track of the location of the blobs.
+The term 'working tree' stems from the fact that, at any time,
+you have a single tree (or: state) checked out and are working on it.
+If we have a look at our current tree:
+```{.sh}
+# Some of the IDs are shortened, indicated by '...'
+$ git cat-file -t 94d90800...
+tree
+$ g cat-file -p 94d90800..
+100644 blob 6434b133...    file_a.txt
+```
+
+So in order, the tree object contains the following:
+The file mode ^[indicating the file permissions],
+the type,
+the ID, and
+the file name.
+
+A tree can also contain more sub-trees,
+which we can see by looking at this example from
+[chapter 10.2](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects):
+
+```{.sh}
+$ git cat-file -t d8329fc1...
+tree
+$ git cat-file -p d8329fc1...
+100644 blob a906cb2a...      README
+100644 blob 8f941393...      Rakefile
+040000 tree 99f1a6d1...      lib
+$ git cat-file -p 99f1a6d1...
+100644 blob 47c6340d...      simplegit.rb
+```
+
+Which represents a structure as seen in this image:
+
+![](img/data-model.png)
+
+^[Image Credit: [git-scm.com](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)]
+
+Cleverly, git only needs to update the (sub-)trees that actually change with
+any given commit.
+Say we execute the following commands:
+```{.sh}
+$ echo "New line" >> README
+$ git add README # create a new blob object for README
+$ git commit -m "Add new line to README"
+```
+Git only needs to change the top level tree,
+to point to the new `README` blob object.
+But all subtrees can stay untouched.
+
+
+\newpage
 
 ## Tooling
 ### Git Clients
