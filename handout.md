@@ -10,6 +10,8 @@ author:
 fontsize: 10pt
 classoption:
 - twocolumn
+geometry:
+- margin=10mm
 ...
 
 # Maven
