@@ -191,14 +191,14 @@ using the 'porcelain' ^[described in
 of 'Pro Git'] commands.
 
 ### Objects
-Git, at it's core, is a _content addressable filesystem_;
+Git, at it's core, is a _content addressable file system_;
 meaning you can give it any kind of content and it will return a key
 which you can later use to retrieve that content.
 Git stores it's content in _objects_.
 
 __`blob`__  
 When you `git add` a file a _blob_ object is created and it gets added to the index.
-You can see that blob on the filesystem:  
+You can see that blob on the file system:  
 `.git/objects/64/34b133c0a09a4...`  
 The long hexadecimal string is that blob's ID,
 which is dependent on the content of the added file.
@@ -236,7 +236,7 @@ From bottom to top the content is as follows:
 The commit message you entered,
 who created the commit,
 who authored the commit
-^[Author and Commiter can be different when merges etc. get involved].
+^[Author and Committer can be different when merges etc. get involved].
 , and the most important line
 which points to the second object created by `git commit`:
 the tree.
@@ -292,7 +292,7 @@ $ git commit -m "Add new line to README"
 ```
 Git only needs to change the top level tree,
 to point to the new `README` blob object.
-But all subtrees can stay untouched.
+But all subareas can stay untouched.
 
 
 \newpage
