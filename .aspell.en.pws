@@ -1,4 +1,6 @@
-personal_ws-1.1 en 21 
+personal_ws-1.1 en 25 
+GUI
+GUIs
 JUnit
 Servlet
 VCS
@@ -14,9 +16,11 @@ xml
 artifactId
 groupId
 img
+mergetool
 mvn
 pathspec
 png
 resources
 src
+UI
 xkcd
