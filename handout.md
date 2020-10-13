@@ -177,6 +177,41 @@ create a new branch
 \newpage
 
 ## Data Model
+When talking about Git's data model, there are really two distinct topics:
+the conceptual model of commits and branches
+and the "physical", on-disk model of how git stores the repository contents.
+In this document we will first look at the conceptual model
+and afterwards at the physical model.
+
+### Commits
+Commits in Git always represent a _snapshot_ of the entire repository.
+By contrast, some other VCSs only store the changes (diff) made in a commit.
+
+In practice, this means that every commit points to a _tree_.
+A tree can be thought of as a representation of the files
+and their structure in the repository.
+```{.sh}
+# tree A            # tree B (new file_c.txt)
+.                   .
+|-- directory_a     |-- directory_a
+|   `-- file_b.txt  |   |-- file_b.txt
+`-- file_a.txt      |   `-- file_c.txt
+                    `-- file_a.txt
+```
+Another tree that is commonly refered to in Git is the so-called
+_working tree_.
+This special tree is not necessarily pointed to by any commit,
+but represents the files currently being worked on.
+The working tree is comprised of the `HEAD`
+^[`HEAD` always refers to the commit that is currently checked out.]
+and any changes that aren't commited yet.
+
+### Index
+### Branches
+
+\newpage
+
+### Physical Model
 Git's internal data model is designed to be extremely simple and elegant,
 and thus well worth learning about.
 In order to explore the data model yourself,
@@ -213,8 +248,7 @@ This is the second line.
 ```
 
 __`commit`__  
-When you commit something, Git stores a _snapshot_
-^[Some other VCS only store the diffs, but Git stores the entire state]
+When you commit something, Git stores a snapshot
 of the  
 working tree, and tells you the `commit` object it created for that state.
 ```{.sh}
