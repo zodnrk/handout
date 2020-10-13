@@ -4,7 +4,7 @@ titlepage: false
 lot: false
 toc: false
 author:
-- Bolliger Cyrill Alexander
+- Bolliger Cyrill
 - Schneider Marc
 - Schär Marius
 fontsize: 10pt
@@ -178,7 +178,7 @@ the main branch.
 \newpage
 
 ## Data Model
-Git's internal data model is extremely simple and elegant,
+Git's internal data model is designed to be extremely simple and elegant,
 and thus well worth learning about.
 In order to explore the data model yourself,
 we recommend reading
@@ -236,7 +236,7 @@ From bottom to top the content is as follows:
 The commit message you entered,
 who created the commit,
 who authored the commit
-^[Author and Committer can be different when merges etc. get involved].
+^[Author and Committer can be different when merges etc. get involved.]
 , and the most important line
 which points to the second object created by `git commit`:
 the tree.
@@ -256,7 +256,7 @@ $ g cat-file -p 94d90800..
 ```
 
 So in order, the tree object contains the following:
-The file mode ^[indicating the file permissions],
+the file mode ^[indicating the file permissions],
 the type,
 the ID, and
 the file name.
@@ -282,7 +282,7 @@ Which represents a structure as seen in this image:
 
 ^[Image Credit: [git-scm.com](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)]
 
-Cleverly, git only needs to update the (sub-)trees that actually change with
+Git only needs to update the (sub-)trees that actually change with
 any given commit.
 Say we execute the following commands:
 ```{.sh}
