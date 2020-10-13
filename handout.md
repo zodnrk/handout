@@ -94,7 +94,6 @@ information is available
 * `mvn deploy` - ships your package
 * `mvn clean` - removes all (intermediate) build files
 
-
 # Git
 ## Further Reading
 For further reading about Git,
@@ -120,26 +119,6 @@ Some of the goals for Git were:
 * Support for parallel development
 * Fully distributed
 * Efficiently handle large projects
-
-## Quick Start Guide
-* Get and install Git:
-[git-scm.com/downloads](https://git-scm.com/downloads)
-* `git clone git@github.com/dude/project` - get a local copy of the project
-* `git fetch` - get the latest changes from the server, without applying
-them to your working copy
-* `git status` - list the changes on your working copy and show, if they
-are included in your next commit
-* `git add <pathspec>` - add the specified file (also multiple files and
-globing allowed) to the next commit (stage the file)
-* `git restore --staged <pathspec>` - remove the specified file from the commit
-list (unstage the file), but keep the local changes
-* `git commit -m <message>` - commit the staged files and add the specified
-commit message
-* `git diff` - show changes between the latest commit and the working copy
-* `git push` - send the commits of the current branch to the repository
-* `git pull` - get the latest commits of the current branch from the repository
-* `git checkout <branch>` - switch to the specified branch. Use `-b` to
-create a new branch
 
 ## Version Control
 Version control systems (VCS) serve mainly two purposes:
@@ -173,7 +152,27 @@ therefore be merged into the feature branch, so the feature could be finished
 and tested already with the hot-fix included, before being merged back into
 the main branch.
 
-## Collaboration
+## Quick Start Guide
+* Get and install Git:
+[git-scm.com/downloads](https://git-scm.com/downloads)
+* `git clone git@github.com/dude/project` - get a local copy of the project
+* `git fetch` - get the latest changes from the server, without applying
+them to your working copy
+* `git status` - list the changes on your working copy and show, if they
+are included in your next commit
+* `git add <pathspec>` - add the specified file (also multiple files and
+globing allowed) to the next commit (stage the file)
+* `git restore --staged <pathspec>` - remove the specified file from the commit
+list (unstage the file), but keep the local changes
+* `git commit -m <message>` - commit the staged files and add the specified
+commit message
+* `git diff` - show changes between the latest commit and the working copy
+* `git push` - send the commits of the current branch to the repository
+* `git pull` - get the latest commits of the current branch from the repository
+* `git checkout <branch>` - switch to the specified branch. Use `-b` to
+create a new branch
+
+![[xkcd.com/1597](https://xkcd.com/1597/)](img/xkcd_1597.png)
 
 \newpage
 
@@ -294,8 +293,9 @@ Git only needs to change the top level tree,
 to point to the new `README` blob object.
 But all subareas can stay untouched.
 
-
 \newpage
+
+## Collaboration
 
 ## Tooling
 ### Git Clients
@@ -332,9 +332,6 @@ Git will then automatically guide you through the merge
 using the configured tool.
 
 \newpage
-![](img/xkcd_1597.png)
-
-^[Image Credit: [xkcd.com](https://xkcd.com/1597/)]
 
 ![](img/git-branching-model.png)
 
