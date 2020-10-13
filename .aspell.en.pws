@@ -18,12 +18,14 @@ mvn
 newpage
 pathspec
 png
+README
 resources
 scm
 src
 titlepage
 toc
 twocolumn
+txt
 UI
 unstage
 xkcd
