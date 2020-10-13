@@ -26,6 +26,11 @@ Maven can scope dependencies to be included on:
  - Provided (only to compile, not on runtime. Example: Servlet API)
  - Test (dependency is only included for automated testing. Example: JUnit)
 
+ ## Other build frameworks
+ - Gradle
+ - Apache Ant
+ - make
+
 ## Configuration file: pom.xml
 The `pom.xml` is a **p**roject **o**bject **m**odel with xml format.
 
