@@ -425,6 +425,8 @@ using the configured tool.
 
 ^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
 
+![](img/git-transport-v1.png)
+
 ^[Image Credit: [patrickzahnd.ch](https://www.patrickzahnd.ch/uploads/git-transport-v1.png)]
 
 ## Improvements
