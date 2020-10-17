@@ -207,7 +207,10 @@ The working tree is comprised of the `HEAD`
 and any changes that aren't commited yet.
 
 ### Index
-The git _index_, sometimes also called _staging area_ or _cache_, refers to the files to be committed. `git add <pathspec>` puts the current version of the specified files on the index, `git commit` then takes those files of the index to create the next snapshot for the local repository:
+The git _index_, sometimes also called _staging area_ or _cache_, refers to the
+files to be committed. `git add <pathspec>` puts the current version of the
+specified files on the index, `git commit` then takes those files of the index
+to create the next snapshot for the local repository:
 
 ```
 workspace
@@ -221,7 +224,10 @@ workspace
 local repository
 ```
 
-The index not only holds a list of files, but also their state at the point of time they were added to the index. Therefore the index not only serves as pre-commit snapshot, but it can also be used to temporarily store a particular file's state, without committing it yet. 
+The index not only holds a list of files, but also their state at the point of
+time they were added to the index. Therefore the index not only serves as
+pre-commit snapshot, but it can also be used to temporarily store a particular
+file's state, without committing it yet. 
 
 ### Branches
 
