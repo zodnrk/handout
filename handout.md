@@ -162,8 +162,8 @@ them to your working copy
 are included in your next commit
 * `git add <pathspec>` - add the specified file (also multiple files and
 globing allowed) to the next commit (stage the file)
-* `git restore --staged <pathspec>` - remove the specified file from the commit
-list (unstage the file), but keep the local changes
+* `git restore --staged <pathspec>` - remove the specified file from the index
+(unstage the file), but keep the local changes
 * `git commit -m <message>` - commit the staged files and add the specified
 commit message
 * `git diff` - show changes between the latest commit and the working copy
@@ -207,6 +207,22 @@ The working tree is comprised of the `HEAD`
 and any changes that aren't commited yet.
 
 ### Index
+The git _index_, sometimes also called _staging area_ or _cache_, refers to the files to be committed. `git add <pathspec>` puts the current version of the specified files on the index, `git commit` then takes those files of the index to create the next snapshot for the local repository:
+
+```
+workspace
+    |
+    |   git add <pathspec>
+    v
+  index
+    |
+    |   git commit
+    v
+local repository
+```
+
+The index not only holds a list of files, but also their state at the point of time they were added to the index. Therefore the index not only serves as pre-commit snapshot, but it can also be used to temporarily store a particular file's state, without committing it yet. 
+
 ### Branches
 
 \newpage
