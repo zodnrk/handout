@@ -3,9 +3,15 @@ title: Maven & Git
 titlepage: false
 lot: false
 toc: false
+author:
+- Bolliger Cyrill
+- Schneider Marc
+- Schär Marius
 fontsize: 10pt
 classoption:
 - twocolumn
+geometry:
+- margin=10mm
 ...
 
 # Maven
@@ -93,11 +99,10 @@ information is available
 * `mvn deploy` - ships your package
 * `mvn clean` - removes all (intermediate) build files
 
-
 # Git
 ## Further Reading
 For further reading about Git,
-I recommend the book _Pro Git_.
+We recommend the book _Pro Git_.
 It's free, and can be found on [the Git
 website](https://git-scm.com/book/en/v2).
 If you're looking for something in video form,
@@ -119,26 +124,6 @@ Some of the goals for Git were:
 * Support for parallel development
 * Fully distributed
 * Efficiently handle large projects
-
-## Quick Start Guide
-* Get and install Git:
-[git-scm.com/downloads](https://git-scm.com/downloads)
-* `git clone git@github.com/dude/project` - get a local copy of the project
-* `git fetch` - get the latest changes from the server, without applying
-them to your working copy
-* `git status` - list the changes on your working copy and show, if they
-are included in your next commit
-* `git add <pathspec>` - add the specified file (also multiple files and
-globing allowed) to the next commit (stage the file)
-* `git restore --staged <pathspec>` - remove the specified file from the commit
-list (unstage the file), but keep the local changes
-* `git commit -m <message>` - commit the staged files and add the specified
-commit message
-* `git diff` - show changes between the latest commit and the working copy
-* `git push` - send the commits of the current branch to the repository
-* `git pull` - get the latest commits of the current branch from the repository
-* `git checkout <branch>` - switch to the specified branch. Use `-b` to
-create a new branch
 
 ## Version Control
 Version control systems (VCS) serve mainly two purposes:
@@ -172,9 +157,234 @@ therefore be merged into the feature branch, so the feature could be finished
 and tested already with the hot-fix included, before being merged back into
 the main branch.
 
-## Collaboration
+## Quick Start Guide
+* Get and install Git:
+[git-scm.com/downloads](https://git-scm.com/downloads)
+* `git clone git@github.com/dude/project` - get a local copy of the project
+* `git fetch` - get the latest changes from the server, without applying
+them to your working copy
+* `git status` - list the changes on your working copy and show, if they
+are included in your next commit
+* `git add <pathspec>` - add the specified file (also multiple files and
+globing allowed) to the next commit (stage the file)
+* `git restore --staged <pathspec>` - remove the specified file from the index
+(unstage the file), but keep the local changes
+* `git commit -m <message>` - commit the staged files and add the specified
+commit message
+* `git diff` - show changes between the latest commit and the working copy
+* `git push` - send the commits of the current branch to the repository
+* `git pull` - get the latest commits of the current branch from the repository
+* `git checkout <branch>` - switch to the specified branch. Use `-b` to
+create a new branch
+
+![[xkcd.com/1597](https://xkcd.com/1597/)](img/xkcd_1597.png)
+
+\newpage
+## Git Concepts
+### Index
+The git _index_, sometimes also called _staging area_ or _cache_, refers to the
+files to be committed. `git add <pathspec>` puts the current version of the
+specified files on the index, `git commit` then takes those files of the index
+to create the next snapshot for the local repository:
+
+```
+workspace
+    |
+    |   git add <pathspec>
+    v
+  index
+    |
+    |   git commit
+    v
+local repository
+```
+
+The index not only holds a list of files, but also their state at the point of
+time they were added to the index. Therefore the index not only serves as
+pre-commit snapshot, but it can also be used to temporarily store a particular
+file's state, without committing it yet. 
+
+\newpage
 
 ## Data Model
+When talking about Git's data model, there are really two distinct topics:
+the conceptual model of commits and branches
+and the "physical", on-disk model of how git stores the repository contents.
+In this document we will first look at the conceptual model
+and afterwards at the physical model.
+
+### Commits
+Commits in Git always represent a _snapshot_ of the entire repository.
+By contrast, some other VCSs only store the changes (diff) made in a commit.
+
+In practice, this means that every commit points to a _tree_.
+A tree can be thought of as a representation of the files
+and their structure in the repository.
+```{.sh}
+# tree A            # tree B (new file_c.txt)
+.                   .
+|-- directory_a     |-- directory_a
+|   `-- file_b.txt  |   |-- file_b.txt
+`-- file_a.txt      |   `-- file_c.txt
+                    `-- file_a.txt
+```
+Another tree that is commonly referred to in Git is the so-called
+_working tree_.
+This special tree is not necessarily pointed to by any commit,
+but represents the files currently being worked on.
+The working tree is comprised of the `HEAD`
+^[`HEAD` always refers to the commit that is currently checked out.]
+and any changes that aren't commited yet.
+
+Every commit is an object
+(as discussed later, in the 'Physical Model' section),
+meaning it has a SHA-1 hash identifying it.
+
+### Branches
+Branches in Git are simply a label pointing to a commit.
+
+A (local) branch is simply a file in the
+`.git/refs/heads/` directory of a repository,
+containing the commit SHA-1 hash that it's pointing to.
+The branch structure of the repository
+this handout was written in can be seen below:
+
+```{.sh}
+# part of the .git directory
+.git/refs/heads/
+|-- cybo
+|   `-- git-index
+|-- master
+`-- msch
+    |-- continuous-integration
+    |-- git-data-model
+    `-- git-tooling
+```
+
+Git keeps track of tags and remote branches
+in a similar fashion in the sub-directories of `.git/refs/`.
+
+\newpage
+
+### Physical Model
+Git's internal data model is designed to be extremely simple and elegant,
+and thus well worth learning about.
+In order to explore the data model yourself,
+we recommend reading
+[section 10](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
+in the book 'Pro Git'.
+
+It can be very enlightening and useful to poke around in a simple repository
+using the 'porcelain' ^[described in
+[chapter 10.1](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
+of 'Pro Git'] commands.
+
+### Objects
+Git, at it's core, is a _content addressable file system_;
+meaning you can give it any kind of content and it will return a key
+which you can later use to retrieve that content.
+Git stores it's content in _objects_.
+
+__`blob`__  
+When you `git add` a file a _blob_ object is created and it gets added to the index.
+You can see that blob on the file system:  
+`.git/objects/64/34b133c0a09a4...`  
+The long hexadecimal string is that blob's ID,
+which is dependent on the content of the added file.
+You can explore that blob:
+```{.sh}
+# IDs can be shortened to minimally identifying length
+# but at least four characters
+$ git cat-file -t 6434 # show the object's type
+blob
+$ git cat-file -p 6434 # show the blob's content
+This is a new text file.
+This is the second line.
+```
+
+__`commit`__ 
+When you commit something, Git stores a snapshot
+of the  
+working tree, and tells you the `commit` object it created for that state.
+```{.sh}
+$ git commit -m "New file_a.txt created"
+[master 8ea18ad] New file_a.txt created
+$ git cat-file -t 8ea18ad # show the object's type
+commit
+$ git cat-file -p 8ea18ad # show the commit's content
+tree 94d90800073ade891976882159951f9702a03b59
+author John Doe <john@example.com> 1602405691 +0200
+committer John Doe <john@example.com> 1602405691 +0200
+
+New file_a.txt created
+```
+
+Above you can see the contents of a commit.
+From bottom to top the content is as follows:
+The commit message you entered,
+who created the commit,
+who authored the commit
+^[Author and Committer can be different when merges etc. get involved.]
+, and the most important line
+which points to the second object created by `git commit`:
+the tree.
+
+\newpage
+__`tree`__  
+The tree object let's Git keep track of the location of the blobs.
+The term 'working tree' stems from the fact that, at any time,
+you have a single tree (or: state) checked out and are working on it.
+If we have a look at our current tree:
+```{.sh}
+# Some of the IDs are shortened, indicated by '...'
+$ git cat-file -t 94d90800...
+tree
+$ g cat-file -p 94d90800..
+100644 blob 6434b133...    file_a.txt
+```
+
+So in order, the tree object contains the following:
+the file mode ^[indicating the file permissions],
+the type,
+the ID, and
+the file name.
+
+A tree can also contain more sub-trees,
+which we can see by looking at this example from
+[chapter 10.2](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects):
+
+```{.sh}
+$ git cat-file -t d8329fc1...
+tree
+$ git cat-file -p d8329fc1...
+100644 blob a906cb2a...      README
+100644 blob 8f941393...      Rakefile
+040000 tree 99f1a6d1...      lib
+$ git cat-file -p 99f1a6d1...
+100644 blob 47c6340d...      simplegit.rb
+```
+
+Which represents a structure as seen in this image:
+
+![](img/data-model.png)
+
+^[Image Credit: [git-scm.com](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)]
+
+Git only needs to update the (sub-)trees that actually change with
+any given commit.
+Say we execute the following commands:
+```{.sh}
+$ echo "New line" >> README
+$ git add README # create a new blob object for README
+$ git commit -m "Add new line to README"
+```
+Git only needs to change the top level tree,
+to point to the new `README` blob object.
+But all subareas can stay untouched.
+
+\newpage
+
+## Collaboration
 
 ## Tooling
 ### Git Clients
@@ -211,9 +421,6 @@ Git will then automatically guide you through the merge
 using the configured tool.
 
 \newpage
-![](img/xkcd_1597.png)
-
-^[Image Credit: [xkcd.com](https://xkcd.com/1597/)]
 
 ![](img/git-branching-model.png)
 
