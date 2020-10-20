@@ -8,10 +8,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set spellcheck as executable
         run: chmod a+x spellcheck
+      - name: Print message that we're performing spellcheck
+        run: echo "Performing spellcheck..."
       - name: Check spelling of handout.md
-        run: MISTAKES="$(./spellcheck handout.md)"
-      - name: If there are mistakes, fail the job
-        run: '[ -z "$MISTAKES" ] || exit 1'
+        run: |
+          MISTAKES="$(./spellcheck handout.md)"
+          echo "$MISTAKES"
+          [ -z "$MISTAKES" ] || exit 1
+          echo "There were no mistakes :)"
   build:
     runs-on: ubuntu-latest
     container: registry.gitlab.com/severinkaderli/pandoc-docker:latest
