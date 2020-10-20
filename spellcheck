@@ -12,5 +12,6 @@ fi
 
 cat "$1" | tr -d '*' | aspell --home-dir=. list | sort | uniq | while read mistake
 do
+  echo "Misspelled word: $mistake"
   grep --color=auto -ns "$mistake" "$1"
 done

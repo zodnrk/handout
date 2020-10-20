@@ -198,7 +198,7 @@ and their structure in the repository.
 `-- file_a.txt      |   `-- file_c.txt
                     `-- file_a.txt
 ```
-Another tree that is commonly refered to in Git is the so-called
+Another tree that is commonly referred to in Git is the so-called
 _working tree_.
 This special tree is not necessarily pointed to by any commit,
 but represents the files currently being worked on.
