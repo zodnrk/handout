@@ -231,7 +231,33 @@ The working tree is comprised of the `HEAD`
 ^[`HEAD` always refers to the commit that is currently checked out.]
 and any changes that aren't commited yet.
 
+Every commit is an object
+(as discussed later, in the 'Physical Model' section),
+meaning it has a SHA-1 hash identifying it.
+
 ### Branches
+Branches in Git are simply a label pointing to a commit.
+
+A (local) branch is simply a file in the
+`.git/refs/heads/` directory of a repository,
+containing the commit SHA-1 hash that it's pointing to.
+The branch structure of the repository
+this handout was written in can be seen below:
+
+```{.sh}
+# part of the .git directory
+.git/refs/heads/
+|-- cybo
+|   `-- git-index
+|-- master
+`-- msch
+    |-- continuous-integration
+    |-- git-data-model
+    `-- git-tooling
+```
+
+Git keeps track of tags and remote branches
+in a similar fashion in the sub-directories of `.git/refs/`.
 
 \newpage
 
@@ -271,7 +297,7 @@ This is a new text file.
 This is the second line.
 ```
 
-__`commit`__  
+__`commit`__ 
 When you commit something, Git stores a snapshot
 of the  
 working tree, and tells you the `commit` object it created for that state.
