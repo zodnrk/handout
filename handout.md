@@ -422,7 +422,7 @@ using the configured tool.
 
 \newpage
 
-## Improvements
+# Improvements
 If you would like to suggest improvements to this document,
 or think that a section is unclear:
 do not hesitate to open an issue on
