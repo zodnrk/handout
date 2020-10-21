@@ -146,7 +146,7 @@ into a new, combined one.
 ## Branching Model
 Apart of the very source of truth, the `main` (or `master`) branch, Git
 allows to have some diverging source trees called branches. Branches allow
-to make and test some changes, without messing with the main code. A branch
+to make and test some changes, without modifying the main code. A branch
 can be imagined as if it would be a completely separated copy of the code.
 
 It is very common to develop new features in a dedicated branch. This brings
@@ -161,7 +161,7 @@ the main branch.
 ## Quick Start Guide
 * Get and install Git:
 [git-scm.com/downloads](https://git-scm.com/downloads)
-* `git clone git@github.com/dude/project` - get a local copy of the project
+* `git clone git@github.com/user/project` - get a local copy of the project
 * `git fetch` - get the latest changes from the server, without applying
 them to your working copy
 * `git status` - list the changes on your working copy and show, if they
