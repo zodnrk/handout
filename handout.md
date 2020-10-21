@@ -434,7 +434,7 @@ do not hesitate to open an issue on
 
 ^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
 
-![Git data transport Cheatsheet](img/git-transport-v1.png)
+![Git data transport cheatsheet](img/git-transport-v1.png)
 
 ^[Image Credit: [patrickzahnd.ch](https://www.patrickzahnd.ch/uploads/git-transport-v1.png)]
 

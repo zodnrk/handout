@@ -1,4 +1,4 @@
-personal_ws-1.1 en 48 
+personal_ws-1.1 en 50 
 Bolliger
 Cyrill
 Git's
@@ -15,6 +15,7 @@ VCSs
 ade
 artifactId
 cb
+cheatsheet
 classoption
 commited
 commit's
@@ -27,6 +28,7 @@ mergetool
 msch
 mvn
 newpage
+onecolumn
 pathspec
 png
 pre
