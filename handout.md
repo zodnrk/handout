@@ -202,8 +202,8 @@ local repository
 ```
 
 The index not only holds a list of files, but also their state at the point of
-time they were added to the index. Therefore the index not only serves as
-pre-commit snapshot, but it can also be used to temporarily store a particular
+time they were added to the index. Therefore the index serves as
+pre-commit snapshot, and it can also be used to temporarily store a particular
 file's state, without committing it yet. 
 
 \newpage
