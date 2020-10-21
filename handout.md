@@ -173,7 +173,7 @@ globing allowed) to the next commit (stage the file)
 * `git commit -m <message>` - commit the staged files and add the specified
 commit message
 * `git diff` - show changes between the latest commit and the working copy
-* `git diff branch1 branch2` - show changes between the two branches
+* `git diff <branch1> <branch2>` - show changes between the two branches
 * `git push` - send the commits of the current branch to the repository
 * `git pull` - get the latest commits of the current branch from the repository
 * `git checkout <branch>` - switch to the specified branch. Use `-b` to
