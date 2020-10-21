@@ -384,8 +384,6 @@ But all subareas can stay untouched.
 
 \newpage
 
-## Collaboration
-
 ## Tooling
 ### Git Clients
 There are several ways to use Git:
@@ -425,3 +423,10 @@ using the configured tool.
 ![](img/git-branching-model.png)
 
 ^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
+
+## Improvements
+If you would like to suggest improvements to this document,
+or think that a section is unclear:
+do not hesitate to open an issue on
+[github.com/zodnrk/handout](https://github.com/zodnrk/handout)
+
