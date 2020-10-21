@@ -421,16 +421,20 @@ using the configured tool.
 
 \newpage
 
-![](img/git-branching-model.png)
-
-^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
-
-![](img/git-transport-v1.png)
-
-^[Image Credit: [patrickzahnd.ch](https://www.patrickzahnd.ch/uploads/git-transport-v1.png)]
-
 ## Improvements
 If you would like to suggest improvements to this document,
 or think that a section is unclear:
 do not hesitate to open an issue on
 [github.com/zodnrk/handout](https://github.com/zodnrk/handout)
+
+\newpage
+\onecolumn
+
+![An example of a Git branching model](img/git-branching-model.png)
+
+^[Image Credit: [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)]
+
+![Git data transport Cheatsheet](img/git-transport-v1.png)
+
+^[Image Credit: [patrickzahnd.ch](https://www.patrickzahnd.ch/uploads/git-transport-v1.png)]
+
