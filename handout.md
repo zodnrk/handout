@@ -88,6 +88,7 @@ target
  - `src/main/resources` - other files that are needed at runtime
  - `src/test` - anything related to automated tests
  - `src/test/java` - the test sources (p.ex. JUnit classes)
+ - `target` - build output
 
 ## Quick start guide
 * Get and install maven: [maven.apache.org](http://maven.apache.org/)
