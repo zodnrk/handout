@@ -87,7 +87,7 @@ target
  - `src/main/java` - entry point for the applications source
  - `src/main/resources` - other files that are needed at runtime
  - `src/test` - anything related to automated tests
- - `src/test/java` - the test sources (p.ex. JUnit classes)
+ - `src/test/java` - the test sources (e.g. JUnit classes)
  - `target` - build output
 
 ## Quick start guide
