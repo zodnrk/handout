@@ -70,8 +70,8 @@ inheritance etc. Any details may be found in the official
 [introduction](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
 
 ## File structure
-Maven embraces the convention over configuration principle. This incites to
-adhere to the following file structure:
+Maven embraces the convention over configuration principle.
+This encourages developers to adhere to the following project structure:
 ```
 src
     src/main
