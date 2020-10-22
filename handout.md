@@ -88,6 +88,7 @@ target
  - `src/main/resources` - other files that are needed at runtime
  - `src/test` - anything related to automated tests
  - `src/test/java` - the test sources (p.ex. JUnit classes)
+ - `target` - build output
 
 ## Quick start guide
 * Get and install maven: [maven.apache.org](http://maven.apache.org/)
@@ -145,7 +146,7 @@ into a new, combined one.
 ## Branching Model
 Apart of the very source of truth, the `main` (or `master`) branch, Git
 allows to have some diverging source trees called branches. Branches allow
-to make and test some changes, without messing with the main code. A branch
+to make and test some changes, without modifying the main code. A branch
 can be imagined as if it would be a completely separated copy of the code.
 
 It is very common to develop new features in a dedicated branch. This brings
@@ -160,7 +161,7 @@ the main branch.
 ## Quick Start Guide
 * Get and install Git:
 [git-scm.com/downloads](https://git-scm.com/downloads)
-* `git clone git@github.com/dude/project` - get a local copy of the project
+* `git clone git@github.com/user/project` - get a local copy of the project
 * `git fetch` - get the latest changes from the server, without applying
 them to your working copy
 * `git status` - list the changes on your working copy and show, if they
@@ -172,7 +173,7 @@ globing allowed) to the next commit (stage the file)
 * `git commit -m <message>` - commit the staged files and add the specified
 commit message
 * `git diff` - show changes between the latest commit and the working copy
-* `git diff branch1 branch2` - show changes between the two branches
+* `git diff <branch1> <branch2>` - show changes between the two branches
 * `git push` - send the commits of the current branch to the repository
 * `git pull` - get the latest commits of the current branch from the repository
 * `git checkout <branch>` - switch to the specified branch. Use `-b` to
@@ -200,9 +201,9 @@ workspace
 local repository
 ```
 
-The index not only holds a list of files, but also their state at the point of
-time they were added to the index. Therefore the index not only serves as
-pre-commit snapshot, but it can also be used to temporarily store a particular
+The index not only holds a list of files, but also their state at the point in
+time they were added to the index. Therefore the index serves as
+pre-commit snapshot, and it can also be used to temporarily store a particular
 file's state, without committing it yet. 
 
 \newpage
@@ -421,7 +422,7 @@ using the configured tool.
 
 \newpage
 
-## Improvements
+# Improvements
 If you would like to suggest improvements to this document,
 or think that a section is unclear:
 do not hesitate to open an issue on
