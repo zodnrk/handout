@@ -130,7 +130,7 @@ Some of the goals for Git were:
 Version control systems (VCS) serve mainly two purposes:
 
 1) Keeping track of every change that happens to the code
-2) Facilitate simultaneous edition (by multiple programmers) of the same
+2) Facilitate simultaneous development (by multiple programmers) of the same
 project
 
 Thanks to VCS it is possible to easily revert to any revision ever made,
@@ -140,11 +140,11 @@ it is also possible to see, who wrote what and when.
 The fantastic merging capabilities introduced with Git enable programmers to
 easily unify their working copies without overwriting each others changes. This
 outstanding feature made Git the most popular VCS today. Still, every
-programmer has its own version, but Git simplifies merging these versions
+programmer has their own version, but Git simplifies merging these versions
 into a new, combined one.
 
 ## Branching Model
-Apart of the very source of truth, the `main` (or `master`) branch, Git
+Apart from the very source of truth, the `main` (or `master`) branch, Git
 allows to have some diverging source trees called branches. Branches allow
 to make and test some changes, without modifying the main code. A branch
 can be imagined as if it would be a completely separated copy of the code.
